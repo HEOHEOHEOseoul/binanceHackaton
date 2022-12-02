@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Flex,
+  Image,
   Popover,
   PopoverArrow,
   PopoverBody,
@@ -48,9 +49,11 @@ const Header: FC = () => {
       <Box>
         {/* PLN 로고 이름 or 이미지 변경 */}
         <Link href="/">
-          <Text fontWeight="bold" fontSize="xl" cursor="pointer">
+          <Image src="https://cdn.discordapp.com/attachments/1037967226818547713/1048273657601990747/ddcf6e67a7850f4c.png"
+          width={53} height={8}></Image>
+          {/* <Text fontWeight="bold" fontSize="xl" cursor="pointer">
             SpotSpot
-          </Text>
+          </Text> */}
         </Link>
       </Box>
       <Box>

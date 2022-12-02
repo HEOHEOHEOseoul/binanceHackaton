@@ -9,16 +9,15 @@ const height = 512;
 const StoryContents = [
   {
     image: "images/story1.gif",
-    contents: "우리 NFT의 세계관을 여기에 적습니다.",
+    contents: `"여긴 너무 답답해. 더 넓은 세상으로 나갈거야"`,
   },
   {
     image: "images/story2.png",
-    contents:
-      "잘 갖추어진 세계관은 NFT 홀더들에게 몰입감을 부여할 수 있습니다.",
+    contents: `"우리도 현실세계로 나갈 수 있을까?"`,
   },
   {
     image: "images/story3.png",
-    contents: "여러분의 상상의 나래를 펼쳐서 멋진 세계관을 창조해보세요.",
+    contents: `"너네끼리만 가지말고 나도 끼워줘!"`,
   },
 ];
 
@@ -52,8 +51,10 @@ const Story: FC = () => {
       alignItems="center"
     >
       <Text mb={8} fontWeight="bold" fontSize="4xl">
-        STORY
+        2122년
       </Text>
+      <Text fontWeight="bold">컴퓨터 안에 갇혀 지내던 수 많은 0과 1</Text>
+      <Text fontWeight="bold" mb={10}>가상의 답답함을 견디지 못해 현실로 나와 여행을 시작한다</Text>
       <Flex mb={4}>
         {StoryContents.map((_, i) => {
           return (
@@ -84,9 +85,9 @@ const Story: FC = () => {
                 ml={i === 0 ? `-${page}00%` : ""}
                 style={{ transition: "all 0.3s ease-out" }}
               >
-                <Image src={v.image} alt="Story" />
+                <Image src={v.image} alt="Story" mt={10} mb={10}/>
                 {i === page && (
-                  <Text fontSize="xl" w={width}>
+                  <Text fontSize="xl" w={width} mt={10} mb={10}>
                     {v.contents}
                   </Text>
                 )}

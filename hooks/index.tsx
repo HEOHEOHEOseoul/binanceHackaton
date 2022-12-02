@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Web3 from "web3";
-import { MINT_NFT_ABI, MINT_NFT_CONTRACT } from "../web3.config";
+import { MINT_NFT_ABI, MINT_NFT_CONTRACT, CLAIM_CONTRACT, CLAIM_ABI } from "../web3.config";
 
 export const useObserve = () => {
   const [isObserved, setIsObserved] = useState<boolean>(false);
@@ -93,6 +93,7 @@ export const useWallet = () => {
 export const useWeb3 = () => {
   const [web3, setWeb3] = useState<any>();
   const [mintContract, setMintContract] = useState<any>();
+  const [claimContract, setClaimContract] = useState<any>();
 
   useEffect(() => {
     if (!window.ethereum) return;
@@ -103,16 +104,17 @@ export const useWeb3 = () => {
     if (!web3) return;
 
     setMintContract(new web3.eth.Contract(MINT_NFT_ABI, MINT_NFT_CONTRACT));
+    setClaimContract(new web3.eth.Contract(CLAIM_ABI, CLAIM_CONTRACT));
   }, [web3]);
 
-  return { web3, mintContract };
+  return { web3, mintContract, claimContract };
 };
 
 
 
 interface locationType {
   loaded: boolean;
-  coordinates?: { lat: number; lng: number };
+  coordinates: { lat: number; lng: number };
   error?: { code: number; message: string };
 }
 
@@ -137,6 +139,10 @@ export const useGeolocation = () => {
   const onError = (error: { code: number; message: string; }) => {
     setLocation({
       loaded: true,
+      coordinates: {
+        lat:0,
+        lng:0
+      },
       error,
     })
   }

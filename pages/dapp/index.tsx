@@ -1,51 +1,75 @@
-import { Button, Flex, Grid, Text } from '@chakra-ui/react';
-import { claimContract, mintNftTokenContract } from 'contracts';
+import { Button, Flex, Grid, Image, Text } from '@chakra-ui/react';
+import axios from 'axios';
+// import { claimContract, mintNftTokenContract } from 'contracts';
 import useGeolocation, { useWallet, useWeb3 } from 'hooks';
 import { NextPage } from 'next';
 import React, { FC, useEffect, useState } from 'react'
 
 const Dapp : NextPage = () => {
-    // const [newNftCard, setNewNftCard] = useState<string>();
-    // const [userBalance, setUserBalance] = useState<string>();
-    const [quantity, setQuantity] = useState<number>(1);
+  const [myNftArray, setMyNftArray] = useState<any[]>();
+    // const [balance, setBalance] = useState<any>();
     const { account, getAccount } = useWallet();
     const onClickWallet = () => {
       getAccount();
     };
-    const { mintContract } = useWeb3();
+    
+    const { mintContract, claimContract } = useWeb3();
     const location = useGeolocation();
-    const [message, setMessage] = useState<String>('Claim now! if you are in the spot');
+    const [message, setMessage] = useState<String>('');
 
-    const onClickClaim = async() => {
-      // try {
-      //   if(!account || location.loaded) return;
-      //   if(location.coordinates?.lat && location.coordinates.lat <= location.coordinates.lat + 0.001 &&
-      //     location.coordinates.lat >= location.coordinates.lat - 0.001 &&
-      //     location.coordinates.lng <= location.coordinates.lng + 0.001 &&
-      //     location.coordinates.lng >= location.coordinates.lng - 0.001
-      //      ){
-      //       const response = await claimContract.methods.Claim(location.coordinates)
-      //           .send({ from: account })
-      //           console.log(response)
-      //           setMessage('Success')
-      //   }else {
-      //     setMessage('Fail')
-      //   }
-      // }catch(err) {
-      //   console.error(err)
-      // }
+    const getMyNfts = async () => {
+      try {
+        const balanceLength = await mintContract.methods.balanceOf(account).call();
+        console.log("balanceLegnth", balanceLength)
+        const tmpMyNftArray: any[] = [];
+  
+        for(let i = 0; i< parseInt(balanceLength, 10); i++) {
+          const nftTokenId = await mintContract.methods.tokenOfOwnerByIndex(account, i).call();
+          const myMetaDataURI = await mintContract.methods.metadataURIs(nftTokenId).call();
+          console.log('myMetadataURI ' + i + " : " + myMetaDataURI);
+          await axios.get(myMetaDataURI)
+          .then((response) => {
+            tmpMyNftArray.push('https://ipfs.io/ipfs/'+response.data.image.substring(7, response.data.image.length))
+          })
+        }
+        setMyNftArray(tmpMyNftArray);
+      }catch(err) {
+        console.error(err);
+      }
     }
 
+    const onClickClaim = async() => {
+      try {
+        const response = 
+        await claimContract.methods.claim(
+          Math.floor(location.coordinates.lat*100), Math.floor(location.coordinates.lng*100))
+            .send({ from: account })
+            console.log(response)
+            // setMessage('Success')
+            if(response.status) {
+              alert('100 $TOPS 클레임 완료!')
+              // const balanceLength = await claimContract.methods
+              // .balanceOf(account)
+              // .call();
+              // setBalance(balanceLength)
+              
+          }
+      }catch(err) {
+        console.error(err)
+      }
+    }
 
+ 
     const onClickMint = async() => {
         try {
             if(!account) return;
 
-            const response = await mintContract.methods.mintNFT(quantity)
+            const response = await mintContract.methods.mintNFT()
             .send({ from: account })
             console.log(response)
 
             if(response.status) {
+                alert('민팅 완료');
                 const balanceLength = await mintContract.methods
                 .balanceOf(account)
                 .call();
@@ -59,14 +83,6 @@ const Dapp : NextPage = () => {
             console.log(err)
         }
     }
-    /**유저 잔고조회 */
-    // const getUserBalance = (userAddress:any) => {
-    //     window.ethereum.request({method: 'eth_getBalance', params: [userAddress, 'latest']})
-    //     .then((balance:any) => {
-    //         setUserBalance(ethers.utils.formatEther(balance).substring(0,5))
-    //         console.log(ethers.utils.formatEther(balance))
-    //     })
-    // }
 
     
 
@@ -79,23 +95,30 @@ const Dapp : NextPage = () => {
           pt={24}
           flexDir="column"
         >
+          
+          
+
+
+
           {account ? 
           <div>
             {/* <Text mb={8} fontWeight="bold" fontSize="4xl"> */}
               <Text>Your Account : {account}</Text>
-              <Text>Your Balance : </Text>
-              <Text>체험하려면 먼저 민팅하세요</Text>
+              {/* <Text>$TOPS Balance : {balance}</Text> */}
+              <Text>민팅하고 같이 여행을 떠나요!</Text>
               <Button onClick={onClickMint}>Mint</Button>
+              <br></br>
             {/* </Text> */}
+            <Button onClick={onClickClaim} disabled={!location.loaded} mt={10}>Claim</Button>
+            <Text>{message}</Text>
             <div>
               {location.loaded
-                ? "위도 : "+location.coordinates?.lat + "경도 : " + location.coordinates?.lng
+                ? "위도 : "+location.coordinates?.lat + " 경도 : " + location.coordinates?.lng
               : "GPS 미확인"}
+              
             </div>
-            <div>
-              <Button onClick={onClickClaim}>Claim</Button>
-              <Text>{message}</Text>
-            </div>
+            
+            
           </div>
           :
           <div>

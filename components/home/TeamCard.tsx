@@ -34,7 +34,7 @@ const TeamCard: FC<TeamCardProps> = ({ name, position, image }) => {
       <Text mt={4} fontSize="4xl">
         {name}
       </Text>
-      <Text mt={2} fontSize="2xl" fontWeight="bold">
+      <Text mt={2} fontSize="2xl">
         {position}
       </Text>
     </Flex>

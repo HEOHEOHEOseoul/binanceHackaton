@@ -64,11 +64,10 @@ const Header = ()=>{
             /*#__PURE__*/ jsx_runtime_.jsx(react_.Box, {
                 children: /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                     href: "/",
-                    children: /*#__PURE__*/ jsx_runtime_.jsx(react_.Text, {
-                        fontWeight: "bold",
-                        fontSize: "xl",
-                        cursor: "pointer",
-                        children: "SpotSpot"
+                    children: /*#__PURE__*/ jsx_runtime_.jsx(react_.Image, {
+                        src: "https://cdn.discordapp.com/attachments/1037967226818547713/1048273657601990747/ddcf6e67a7850f4c.png",
+                        width: 53,
+                        height: 8
                     })
                 })
             }),

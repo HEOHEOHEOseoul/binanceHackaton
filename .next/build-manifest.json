@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/Htg8c3QILK-x9fj6odskn/_buildManifest.js",
-    "static/Htg8c3QILK-x9fj6odskn/_ssgManifest.js"
+    "static/pCuxtiC__FLisYDOssA69/_buildManifest.js",
+    "static/pCuxtiC__FLisYDOssA69/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -14,15 +14,15 @@
       "static/chunks/webpack-626770f5da670b40.js",
       "static/chunks/framework-21e3f028c1d5b784.js",
       "static/chunks/main-9533872df61c4596.js",
-      "static/chunks/500-4cb4fad5b1ae948a.js",
-      "static/chunks/pages/index-d1deeebb25e8a44c.js"
+      "static/chunks/261-2cdb71c08f3dbf68.js",
+      "static/chunks/pages/index-84f821a2db42fe9c.js"
     ],
     "/_app": [
       "static/chunks/webpack-626770f5da670b40.js",
       "static/chunks/framework-21e3f028c1d5b784.js",
       "static/chunks/main-9533872df61c4596.js",
       "static/css/d3ed835183f36891.css",
-      "static/chunks/pages/_app-6e554ae9e249569e.js"
+      "static/chunks/pages/_app-0bf3b0cc47e475c7.js"
     ],
     "/_error": [
       "static/chunks/webpack-626770f5da670b40.js",
@@ -34,21 +34,22 @@
       "static/chunks/webpack-626770f5da670b40.js",
       "static/chunks/framework-21e3f028c1d5b784.js",
       "static/chunks/main-9533872df61c4596.js",
-      "static/chunks/pages/dapp-d937bba8d9e00e85.js"
+      "static/chunks/196-7d12f07d01ee52f9.js",
+      "static/chunks/pages/dapp-e869025e36e59acd.js"
     ],
     "/my-nft": [
       "static/chunks/webpack-626770f5da670b40.js",
       "static/chunks/framework-21e3f028c1d5b784.js",
       "static/chunks/main-9533872df61c4596.js",
-      "static/chunks/937-bfa139d35e095229.js",
-      "static/chunks/pages/my-nft-e380689ab7e98b7d.js"
+      "static/chunks/196-7d12f07d01ee52f9.js",
+      "static/chunks/pages/my-nft-fc01e3494b267db3.js"
     ],
     "/my-nft/detail/[id]": [
       "static/chunks/webpack-626770f5da670b40.js",
       "static/chunks/framework-21e3f028c1d5b784.js",
       "static/chunks/main-9533872df61c4596.js",
-      "static/chunks/937-bfa139d35e095229.js",
-      "static/chunks/pages/my-nft/detail/[id]-288ec2640ce5ae67.js"
+      "static/chunks/196-7d12f07d01ee52f9.js",
+      "static/chunks/pages/my-nft/detail/[id]-5fb450efcb1d5313.js"
     ]
   },
   "ampFirstPages": []

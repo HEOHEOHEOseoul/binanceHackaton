@@ -6,24 +6,19 @@ import TeamCard, { TeamCardProps } from "./TeamCard";
 const teamCardContents: TeamCardProps[] = [
   {
     name: "오동재",
-    position: "백엔드/컨트랙트 개발",
+    position: "Contract/Backend Dev",
     image: "images/team1.png",
   },
   {
     name: "임성은",
-    position: "디자니어",
-    image: "images/team2.png",
+    position: "Designer",
+    image: "images/team2.jpg",
   },
   {
     name: "허진혁",
-    position: "프로트/앱 개발",
-    image: "images/team3.png",
+    position: "App/Frontend Dev",
+    image: "images/team3.JPG",
   },
-  // {
-  //   name: "h662",
-  //   position: "프로그래머",
-  //   image: "images/team4.png",
-  // },
 ];
 
 const Team: FC = () => {

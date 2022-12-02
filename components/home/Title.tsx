@@ -15,7 +15,7 @@ const Title: FC = () => {
       <Box></Box>
       <Box>
         {/* PLN 타이틀 이미지 교체 */}
-        <Image src="images/title.gif" alt="Title" />
+        <Image src="https://cdn.discordapp.com/attachments/1037967226818547713/1048280746432933928/4-06.png" alt="Title" />
       </Box>
       <ScrollLink to="story" spy={true} smooth={true}>
         <Button
