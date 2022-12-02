@@ -5,10 +5,13 @@ import { NextPage } from 'next';
 import React, { FC, useEffect, useState } from 'react'
 
 const Dapp : NextPage = () => {
-    const [newNftCard, setNewNftCard] = useState<string>();
-    const [userBalance, setUserBalance] = useState<string>();
+    // const [newNftCard, setNewNftCard] = useState<string>();
+    // const [userBalance, setUserBalance] = useState<string>();
     const [quantity, setQuantity] = useState<number>(1);
     const { account, getAccount } = useWallet();
+    const onClickWallet = () => {
+      getAccount();
+    };
     const { mintContract } = useWeb3();
     const location = useGeolocation();
     const [message, setMessage] = useState<String>('Claim now! if you are in the spot');
@@ -68,51 +71,43 @@ const Dapp : NextPage = () => {
     
 
     return (
+      
         <Flex
-        minH="100vh"
-        justifyContent="center"
-        alignItems="center"
-        pt={24}
-        flexDir="column"
-      >
-        <Text mb={8} fontWeight="bold" fontSize="4xl">
-          <Button onClick={onClickMint}>Mint</Button>
-        <div>
-          {location.loaded
-            ? JSON.stringify(location)
-          : "GPS 미확인"}
-        </div>
-        <div>
-          <Button onClick={onClickClaim}>Claim</Button>
-          <Text>{message}</Text>
-        </div>
-        </Text>
-        {/* <Grid templateColumns="repeat(4, 1fr)" gap={8}>
-          
-        </Grid> */}
+          minH="100vh"
+          justifyContent="center"
+          alignItems="center"
+          pt={24}
+          flexDir="column"
+        >
+          {account ? 
+          <div>
+            {/* <Text mb={8} fontWeight="bold" fontSize="4xl"> */}
+              <Text>Your Account : {account}</Text>
+              <Text>Your Balance : </Text>
+              <Text>체험하려면 먼저 민팅하세요</Text>
+              <Button onClick={onClickMint}>Mint</Button>
+            {/* </Text> */}
+            <div>
+              {location.loaded
+                ? "위도 : "+location.coordinates?.lat + "경도 : " + location.coordinates?.lng
+              : "GPS 미확인"}
+            </div>
+            <div>
+              <Button onClick={onClickClaim}>Claim</Button>
+              <Text>{message}</Text>
+            </div>
+          </div>
+          :
+          <div>
+            <Text>지갑을 먼저 연결하세요!</Text>
+            <Button onClick={onClickWallet}>Connect Wallet</Button>
+          </div>}
+          {/* <Grid templateColumns="repeat(4, 1fr)" gap={8}>
+            
+          </Grid> */}
         
         
       </Flex>
-        // <div className='mint-box'>
-        //     <div className='mint-div'>
-        //         <div className='user-balance'> Balance :  {userBalance} BNB</div>
-        //         <div className='mint-quantity'> 
-        //             <button className='plus-minus-button' onClick={() => {
-        //                 if(quantity > 1) setQuantity(quantity-1)}}> - </button> 
-        //                 {quantity} 
-        //             <button className='plus-minus-button' onClick={()=> {
-        //                 if(quantity < 5) setQuantity(quantity+1)
-        //             }}> + </button>
-        //             <button className="mint-button" onClick={onClickMint}>
-        //                 <div className='text'>MINT</div>
-        //             </button>
-
-        //         </div>
-        //         <div><p>You can mint up to 5 Capitalians per transaction. </p></div>
-        //     </div>
-            
-            
-        // </div>
     )
 }
 

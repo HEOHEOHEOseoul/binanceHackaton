@@ -21,7 +21,7 @@ import Link from "next/link";
 // PLN 프로젝트에 맞게 세계관, 로드맵, 팀 변경
 const scrollLink = [
   { id: "/dapp", name: "DApp" },
-  // { id: "/docs", name: "WhitePaper" },
+  { id: "/mobile", name: "Mobile" },
   // { id: "/app", name: "App" },
 ];
 
@@ -66,7 +66,7 @@ const Header: FC = () => {
           );
         })}
       </Box>
-      <Flex justifyContent="center" alignItems="center">
+      {/* <Flex justifyContent="center" alignItems="center">
         {account ? (
           <Popover>
             <PopoverTrigger>
@@ -96,7 +96,7 @@ const Header: FC = () => {
             </Text>
           </Button>
         )}
-      </Flex>
+      </Flex> */}
     </Flex>
   );
 };

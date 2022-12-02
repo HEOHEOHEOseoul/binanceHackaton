@@ -13,7 +13,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
       <Head>
         {/* PLN title, meta의 content 변경  */}
         <title>SpotSpot NFT</title>
-        <meta name="description" content="ProjectLion NFT" />
+        <meta name="description" content="SpotSpot NFT" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
@@ -21,8 +21,8 @@ const Layout: FC<LayoutProps> = ({ children }) => {
       <footer>
         <Box textAlign="center" my={2}>
           <Text fontSize="sm">
-            Team HotSpot | 76, Haneul-gil, Gangseo-gu, Seoul, Republic
-            of Korea | E-Mail h662@olbm.app
+            Team HotSpot | Seoul, Republic
+            of Korea 
           </Text>
           <Text fontSize="xs" mt={1}>
             COPYRIGHT &copy; Team HotSpot. ALL RIGHT RESERVED

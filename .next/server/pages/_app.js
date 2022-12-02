@@ -4,7 +4,7 @@ exports.id = 888;
 exports.ids = [888];
 exports.modules = {
 
-/***/ 8225:
+/***/ 584:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -23,8 +23,6 @@ var react_ = __webpack_require__(8930);
 ;// CONCATENATED MODULE: external "next/head"
 const head_namespaceObject = require("next/head");
 var head_default = /*#__PURE__*/__webpack_require__.n(head_namespaceObject);
-;// CONCATENATED MODULE: external "react-icons/ai"
-const ai_namespaceObject = require("react-icons/ai");
 // EXTERNAL MODULE: ./hooks/index.tsx + 1 modules
 var hooks = __webpack_require__(390);
 // EXTERNAL MODULE: ./node_modules/next/link.js
@@ -35,12 +33,15 @@ var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 
 
 
-
 // PLN 프로젝트에 맞게 세계관, 로드맵, 팀 변경
 const scrollLink = [
     {
         id: "/dapp",
         name: "DApp"
+    },
+    {
+        id: "/mobile",
+        name: "Mobile"
     }
 ];
 const Header = ()=>{
@@ -83,66 +84,6 @@ const Header = ()=>{
                         })
                     }, i);
                 })
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(react_.Flex, {
-                justifyContent: "center",
-                alignItems: "center",
-                children: account ? /*#__PURE__*/ (0,jsx_runtime_.jsxs)(react_.Popover, {
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx(react_.PopoverTrigger, {
-                            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(react_.Button, {
-                                children: [
-                                    /*#__PURE__*/ jsx_runtime_.jsx(ai_namespaceObject.AiOutlineWallet, {
-                                        size: 28
-                                    }),
-                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)(react_.Text, {
-                                        ml: 2,
-                                        fontSize: "xs",
-                                        children: [
-                                            account.substring(0, 4),
-                                            "...",
-                                            account.substring(account.length - 4)
-                                        ]
-                                    })
-                                ]
-                            })
-                        }),
-                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)(react_.PopoverContent, {
-                            children: [
-                                /*#__PURE__*/ jsx_runtime_.jsx(react_.PopoverArrow, {}),
-                                /*#__PURE__*/ jsx_runtime_.jsx(react_.PopoverCloseButton, {}),
-                                /*#__PURE__*/ jsx_runtime_.jsx(react_.PopoverHeader, {
-                                    fontWeight: "bold",
-                                    children: "ProjectLion NFT"
-                                }),
-                                /*#__PURE__*/ jsx_runtime_.jsx(react_.PopoverBody, {
-                                    cursor: "pointer",
-                                    fontSize: "xl",
-                                    children: /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
-                                        href: "/my-nft",
-                                        children: "내 NFT 보기"
-                                    })
-                                })
-                            ]
-                        })
-                    ]
-                }) : /*#__PURE__*/ (0,jsx_runtime_.jsxs)(react_.Button, {
-                    onClick: onClickWallet,
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx(ai_namespaceObject.AiOutlineWallet, {
-                            size: 28
-                        }),
-                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)(react_.Text, {
-                            ml: 2,
-                            fontSize: "xs",
-                            children: [
-                                "MetaMask",
-                                /*#__PURE__*/ jsx_runtime_.jsx("br", {}),
-                                " LogIn"
-                            ]
-                        })
-                    ]
-                })
             })
         ]
     });
@@ -164,7 +105,7 @@ const Layout = ({ children  })=>{
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx("meta", {
                         name: "description",
-                        content: "ProjectLion NFT"
+                        content: "SpotSpot NFT"
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx("link", {
                         rel: "icon",
@@ -181,7 +122,7 @@ const Layout = ({ children  })=>{
                     children: [
                         /*#__PURE__*/ jsx_runtime_.jsx(react_.Text, {
                             fontSize: "sm",
-                            children: "Team HotSpot | 76, Haneul-gil, Gangseo-gu, Seoul, Republic of Korea | E-Mail h662@olbm.app"
+                            children: "Team HotSpot | Seoul, Republic of Korea"
                         }),
                         /*#__PURE__*/ jsx_runtime_.jsx(react_.Text, {
                             fontSize: "xs",
@@ -462,7 +403,7 @@ module.exports = require("web3");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [676,664,390], () => (__webpack_exec__(8225)));
+var __webpack_exports__ = __webpack_require__.X(0, [676,664,390], () => (__webpack_exec__(584)));
 module.exports = __webpack_exports__;
 
 })();
