@@ -1,0 +1,10 @@
+{
+  "/_app": "pages/_app.js",
+  "/dapp": "pages/dapp.html",
+  "/": "pages/index.html",
+  "/my-nft/detail/[id]": "pages/my-nft/detail/[id].html",
+  "/my-nft": "pages/my-nft.html",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
+}
